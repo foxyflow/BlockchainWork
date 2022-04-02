@@ -1,15 +1,4 @@
-# Basic Sample Hardhat Project
+https://nftmarket-seven.vercel.app/ -- still testing
+After creating an NFT from the SellNFT tab (you will be prompted to connect to Metamask) ... the site should look like:
+<img width="833" alt="NFTS" src="https://user-images.githubusercontent.com/41661782/161404032-5302df27-5f30-4ed8-8000-c7d15a099e0f.png">
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
