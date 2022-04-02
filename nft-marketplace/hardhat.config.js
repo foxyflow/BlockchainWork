@@ -1,4 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
+require('dotenv').config();
+
+
 //Ignore:
 //require('dotenv').config(); //my extra: delete .secret from artifacts -- don't pushup beforehand
 //require('hardhat-artifactor');
@@ -16,13 +19,14 @@ const projectId = "7356d542f5a14006b1cb5da26f0513bd"
 require('dotenv').config()
 // Remember to change to the Network your using in index.js to: const provider = new ethers.providers.JsonRpcProvider("https://ropsten.infura.io/v3/7356d542f5a14006b1cb5da26f0513bd")
 module.exports = {
+  defaultNetwork: "hardhat",
   networks:{
     hardhat:{
       chainId: 3137
     },
     ropsten:{ 
       url: `https://ropsten.infura.io/v3/${projectId}`,
-      accounts: [`0x03b6bdd1954d61e909db02dd36f3ca861ff12a9addf89fc2a3d06fe5a5bdad12`] //Known Ropsten private key example. Replace with your own from Metamask
+      accounts: [`0x${process.env.ACCOUNT_KEY}`] //Known Ropsten private key example. Replace with your own from Metamask
     },
     // mumbai:{
     //   url: `https://polygon-mumbai.infura.io/v3/${projectId}`,
@@ -33,5 +37,13 @@ module.exports = {
     //   accounts: [`0X${process.env.ACCOUNT_KEY}`]
     // }
   },
-  solidity: "0.8.4",
+  solidity: {
+    version: "0.8.4",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  }
 };
